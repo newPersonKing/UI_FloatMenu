@@ -252,22 +252,18 @@ public abstract class BaseFloatDialog {
         }
     }
 
-    protected BaseFloatDialog(Context context, GetViewCallback getViewCallback) {
-        this(context);
-        this.mGetViewCallback = getViewCallback;
-        if (mGetViewCallback == null) {
-            throw new IllegalArgumentException("GetViewCallback cound not be null!");
-        }
-
+    public BaseFloatDialog(Context context) {
+        this(context,null);
     }
 
-    protected BaseFloatDialog(Context context) {
+    public BaseFloatDialog(Context context, GetViewCallback getViewCallback) {
         this.mActivity = context;
+        this.mGetViewCallback = getViewCallback;
         initFloatWindow();
         initTimer();
         initFloatView();
-
     }
+
 
 
     private void initFloatView() {
@@ -603,8 +599,6 @@ public abstract class BaseFloatDialog {
                     } else {
                         mGetViewCallback.leftViewOpened(leftView);
                     }
-
-
                 }
             } catch (Exception e) {
                 e.printStackTrace();

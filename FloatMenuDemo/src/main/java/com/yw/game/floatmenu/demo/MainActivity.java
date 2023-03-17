@@ -72,8 +72,8 @@ public class MainActivity extends Activity {
         super.onResume();
         if (mFloatMenu == null) {
             mFloatMenu = new FloatLogoMenu.Builder()
-                    .withActivity(mActivity)
-//                    .withContext(mActivity.getApplication())//这个在7.0（包括7.0）以上以及大部分7.0以下的国产手机上需要用户授权，需要搭配<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+//                    .withActivity(mActivity)
+                    .withContext(mActivity.getApplication())//这个在7.0（包括7.0）以上以及大部分7.0以下的国产手机上需要用户授权，需要搭配<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
                     .logo(BitmapFactory.decodeResource(getResources(), R.drawable.yw_game_logo))
                     .drawCicleMenuBg(true)
                     .backMenuColor(0xffe4e3e1)
@@ -107,8 +107,9 @@ public class MainActivity extends Activity {
 
         if (mBaseFloatDialog != null) return;
 
-        mBaseFloatDialog = new MyFloatDialog(this);
-//         mBaseFloatDialog.show();
+//        mBaseFloatDialog = new MyFloatDialog(this);
+//        mBaseFloatDialog.show();
+         showWithCallback();
 
     }
 
@@ -297,7 +298,7 @@ public class MainActivity extends Activity {
 
     public void hideFloat() {
         if (mFloatMenu != null) {
-            mFloatMenu.hide();
+//            mFloatMenu.hide();
         }
     }
 
